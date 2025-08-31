@@ -114,7 +114,7 @@ const Blog = () => {
           <div 
             className={`${
               viewMode === "grid" 
-                ? "grid md:grid-cols-2 lg:grid-cols-3 gap-8" 
+                ? "grid md:grid-cols-2 lg:grid-cols-3 gap-6 items-stretch" 
                 : "space-y-6"
             }`}
           >

@@ -24,7 +24,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
   const cardSize = featured ? "lg:col-span-2" : "";
 
   return (
-    <Card className={`group bg-gradient-card backdrop-blur-sm border-border/50 hover:shadow-glow transition-all duration-300 hover:scale-[1.02] ${cardSize}`}>
+    <Card className={`group bg-gradient-card backdrop-blur-sm border-border/50 hover:shadow-glow transition-all duration-300 hover:scale-[1.02] h-full flex flex-col ${cardSize}`}>
       {post.image && (
         <div className="relative overflow-hidden rounded-t-lg">
           <img
@@ -38,36 +38,36 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
         </div>
       )}
       
-      <CardHeader className="space-y-3">
-        <div className="flex items-center justify-between">
+      <CardHeader className="space-y-3 flex-grow">
+        <div className="flex items-center justify-between flex-wrap gap-2">
           <Badge 
             variant={post.category === "GenAI" ? "default" : "secondary"}
             className={`${
               post.category === "GenAI" 
-                ? "bg-primary text-primary-foreground" 
-                : "bg-accent text-accent-foreground"
-            }`}
+                ? "bg-primary/90 text-primary-foreground hover:bg-primary" 
+                : "bg-accent/90 text-accent-foreground hover:bg-accent"
+            } font-medium`}
           >
             {post.category}
           </Badge>
           {post.featured && (
-            <Badge variant="outline" className="border-accent text-accent">
+            <Badge variant="outline" className="border-accent/50 text-accent bg-accent/10">
               Featured
             </Badge>
           )}
         </div>
         
-        <CardTitle className={`${featured ? "text-2xl" : "text-xl"} leading-tight group-hover:text-primary transition-colors`}>
+        <CardTitle className={`${featured ? "text-2xl" : "text-xl"} leading-tight group-hover:text-primary transition-colors line-clamp-2`}>
           {post.title}
         </CardTitle>
         
-        <CardDescription className={`${featured ? "text-base" : "text-sm"} text-muted-foreground line-clamp-3`}>
+        <CardDescription className={`${featured ? "text-base" : "text-sm"} text-muted-foreground line-clamp-3 flex-grow`}>
           {post.excerpt}
         </CardDescription>
       </CardHeader>
       
-      <CardContent className="space-y-4">
-        <div className="flex items-center text-sm text-muted-foreground space-x-4">
+      <CardContent className="space-y-4 mt-auto">
+        <div className="flex items-center text-sm text-muted-foreground space-x-4 pb-2">
           <div className="flex items-center space-x-1">
             <CalendarDays className="w-4 h-4" />
             <span>{post.publishedAt}</span>
