@@ -24,7 +24,7 @@ const BlogCard = ({ post, featured = false }: BlogCardProps) => {
   const cardSize = featured ? "lg:col-span-2" : "";
 
   return (
-    <Card className={`group bg-gradient-card backdrop-blur-sm border-border hover:shadow-glow transition-all duration-300 hover:scale-[1.02] ${cardSize}`}>
+    <Card className={`group bg-gradient-card backdrop-blur-sm border-border/50 hover:shadow-glow transition-all duration-300 hover:scale-[1.02] ${cardSize}`}>
       {post.image && (
         <div className="relative overflow-hidden rounded-t-lg">
           <img
